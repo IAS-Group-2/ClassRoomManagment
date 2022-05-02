@@ -1,0 +1,59 @@
+{% extends 'base_template.html' %}
+
+{% block body %}
+
+<link rel="stylesheet" href="../static/fire.css">
+
+<header class="header-fixed">
+
+	<div class="header-limiter">
+		<h1><a href="/dashboard">Application<span>Name</span></a></h1>
+	</div>
+
+</header>
+
+<!-- You need this element to prevent the content of the page from jumping up -->
+<div class="header-fixed-placeholder"></div>
+
+<!-- The content of your page would go here. -->
+<body>
+    <img src="https://assets.codepen.io/t-1/shapelined-Z1xxfm52Htc-unsplash.jpg" alt="scary-forest">
+  <div id="scene">
+   
+
+    <div id="buttons-container">
+      <div id="buttons">
+        <div id="yeah">
+          <div id="fire-container"></div>
+          <button id="fire" type="button" style="display: none;">Fire </button>
+        </div>
+
+        <div id="nah">
+          <div id="smog-container"></div>
+
+          <button id="nofire" type="button">No Fire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/fire.js"></script> 
+  <script>
+      
+    fetch("/detect_fire")
+      .then(response => response.json())
+      .then(data => {
+          console.log(data.message)
+
+          fire_button = document.getElementById("fire")
+          nofire_button = document.getElementById("nofire")
+
+          fire_button.style.display = "block"
+          nofire_button.style.display = "none"
+      })
+
+  </script>
+</body>
+
+
+{% endblock %}

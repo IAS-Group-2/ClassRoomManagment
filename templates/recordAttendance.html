@@ -1,0 +1,74 @@
+
+{% extends 'base_template.html' %}
+
+{% block imports %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/recordAttendance.css">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="assets/demo.css">
+<link rel="stylesheet" href="assets/header-fixed.css">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  
+{% endblock %}
+
+
+{% block body %}
+
+<header class="header-fixed">
+  <div class="header-limiter">
+    <h1><a href="/dashboard">Application<span>Name</span></a></h1>
+    </div>
+  <button type="button" class="btn btn-primary float-right" id="load2" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Attendence..." onclick="myFunction()">
+    <i class="fa fa-book fa-fw"></i> <span class="ml-1"></span>Record Attendence</span></button>
+</header>
+
+  <div class="container" style="margin-top:30px">
+    <div class="row">
+
+      {% for camera in camera_data %}
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card">
+          <h5 class="card-title col px-md-5">Camera Feed</h5>
+          <div class="card-body">
+            <img class="card-img-top" src="{{ url_for('video_feed', topic=camera['topic']) }}" alt="NA" width="180" height="80%">
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <script>
+
+$('.btn').on('click', function() {
+    var $this = $(this);
+    $this.button('loading');
+    // get the button
+    
+    setTimeout(function() {
+       $this.button('reset');
+       //change button text
+        $this.text('Attendence Done');
+        //chnage color to green
+        $this.removeClass('btn-primary');
+        $this.addClass('btn-success');
+        //wait for 2 seconds
+        setTimeout(function() {
+            //redirect to home page
+            window.location.href = "/process_attendence";
+        }, 2000);
+   }, 8000);
+
+
+
+});
+
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}

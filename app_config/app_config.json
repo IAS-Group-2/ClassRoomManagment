@@ -1,0 +1,54 @@
+{
+    "sensor_data":{
+        "sensor_count": "8",
+        "prof_email": "lalitguptax86@gmail.com",
+        "data":{
+            "camera":[
+                {
+                    "topic":"CAM1",
+                    "location":"classroom",
+                    "status":"online"
+                },
+                {
+                    "topic":"CAM2",
+                    "location":"classroom",
+                    "status":"online"
+                },
+                {
+                    "topic":"CAM3",
+                    "location":"classroom",
+                    "status":"online"
+                },
+                {
+                    "topic":"CAM4",
+                    "location":"classroom",
+                    "status":"online"
+                }
+                
+            ],
+            "fan":[
+                {
+                    "topic":"FAN1",
+                    "location":"classroom",
+                    "status":"online"
+                },
+                {
+                    "topic":"FAN2",
+                    "location":"classroom",
+                    "status":"online"
+                },
+                {
+                    "topic":"FAN3",
+                    "location":"classroom",
+                    "status":"online"
+                },
+                {
+                    "topic":"FAN4",
+                    "location":"classroom",
+                    "status":"online"
+                }
+            ]
+        }
+        
+    }
+}

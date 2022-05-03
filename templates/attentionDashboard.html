@@ -21,24 +21,41 @@
 
 <header class="header-fixed">
   <div class="header-limiter">
-    <h1><a href="/dashboard">Record<span>Attendence</span></a></h1>
+    <h1><a href="/dashboard">Attetion<span>Dashboard</span></a></h1>
     </div>
-  <button type="button" class="btn btn-primary float-right" id="load2" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Attendence..." onclick="myFunction()">
-    <i class="fa fa-book fa-fw"></i> <span class="ml-1"></span>Record Attendence</span></button>
+  <!-- <button type="button" class="btn btn-primary float-right" id="load2" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Attendence..." onclick="myFunction()">
+    <i class="fa fa-book fa-fw"></i> <span class="ml-1"></span>Record Attendence</span></button> -->
 </header>
 
   <div class="container" style="margin-top:30px">
     <div class="row">
 
-      {% for camera in camera_data %}
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-        <div class="card">
-          <h5 class="card-title col px-md-5">Camera Feed</h5>
-          <div class="card-body">
-            <img class="card-img-top" src="{{ url_for('video_feed', topic=camera['topic']) }}" alt="NA" width="180" height="80%">
-          </div>
+      {% for student in student_data %}
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="card">
+                    <div class="card-horizontal">
+                      <div class="img-square-wrapper">
+                        <img class="" src="http://via.placeholder.com/300x180" width="100" height="100" alt="Card image cap">
+                    </div>
+                        <div class="card-body">
+
+                          {% if emotions[student["student_name"]]<4 %}
+                            <div class="p-3 mb-2 bg-danger text-dark">Negative</div>
+                          {% else %}
+                            <div class="p-3 mb-2 bg-success text-dark">Positive</div>
+                          {% endif %}
+                            
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{ student["student_name"] }}</small>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
       {% endfor %}
 
     </div>

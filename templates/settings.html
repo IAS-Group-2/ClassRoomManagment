@@ -1,22 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting</title>
-</head>
-<body>
+{% extends 'base_template.html' %}
 
-    <!-- {%for i in passed_list%} -->
-    <div>
-        <img src="../static/pic.png" alt="">
-        <span>name</span>
-        <!-- {%if i[2]==0%} -->
-        <div width="100px" color="red" style="display: inline-block;"></div>
-        <!-- {%else%} -->
-        <div width="100px" color="green" style="display: inline-block;"></div>
-    </div>
-    <!-- {%end for%} -->
-</body>
-</html>
+{% block imports %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/recordAttendance.css">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="../static/settings.css">
+
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  
+{% endblock %}
+
+{% block body %}
+<header class="header-fixed">
+
+	<div class="header-limiter">
+		<h1><a href="/dashboard">Sett<span>ings</span></a></h1>
+	</div>
+	
+</header>
+
+    <!-- Default checked -->
+<div class="custom-control custom-switch center">
+    <input type="checkbox" class="custom-control-input" id="bulb1" checked>
+    <label class="custom-control-label" for="bulb1">Bulb 1</label>
+</div>
+<div class="custom-control custom-switch center">
+    <input type="checkbox" class="custom-control-input" id="bulb2" >
+    <label class="custom-control-label" for="bulb2">Bulb 2</label>
+</div>
+<div class="custom-control custom-switch center">
+    <input type="checkbox" class="custom-control-input" id="bulb3" checked>
+    <label class="custom-control-label" for="bulb3">Bulb 3</label>
+</div>
+<div class="custom-control custom-switch center">
+    <input type="checkbox" class="custom-control-input" id="fan1" >
+    <label class="custom-control-label" for="fan1">Fan 1</label>
+</div>
+<div class="custom-control custom-switch center">
+    <input type="checkbox" class="custom-control-input" id="fan2" checked>
+    <label class="custom-control-label" for="fan2">Fan 2</label>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $('#bulb1').change(function() {
+        if($(this).is(":checked")) {
+            $.ajax({
+                url: '/signal_device/bulb1/on',
+                
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/signal_device/bulb1/off',
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        }
+    });
+
+    $('#bulb2').change(function() {
+        if($(this).is(":checked")) {
+            $.ajax({
+                url: '/signal_device/bulb2/on',
+                
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/signal_device/bulb2/off',
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        }
+    });
+
+    $('#bulb3').change(function() {
+        if($(this).is(":checked")) {
+            $.ajax({
+                url: '/signal_device/bulb3/on',
+                
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/signal_device/bulb3/off',
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        }
+    });
+    $('#fan1').change(function() {
+        if($(this).is(":checked")) {
+            $.ajax({
+                url: '/signal_device/fan1/on',
+                
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/signal_device/fan1/off',
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        }
+    });
+    $('#fan2').change(function() {
+        if($(this).is(":checked")) {
+            $.ajax({
+                url: '/signal_device/fan2/on',
+                
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/signal_device/fan2/off',
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+        }
+    });
+
+</script>
+
+{% endblock %}

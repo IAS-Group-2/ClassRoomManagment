@@ -2,6 +2,18 @@
     "sensor_data":{
         "sensor_count": "8",
         "prof_email": "lalitguptax86@gmail.com",
+        "student_data":[
+            {
+                "student_name": "Sarthak",
+                "student_email": ""
+            },{
+                "student_name": "Gagan",
+                "student_email": ""
+            },{
+                "student_name": "Karan",
+                "student_email": ""
+            }
+        ],
         "data":{
             "camera":[
                 {

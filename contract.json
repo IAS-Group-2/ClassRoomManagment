@@ -1,0 +1,31 @@
+{
+    "contract-type": "APP_Package",
+    "name": "ClassRoomManagement",
+    "version": "4.2.1",
+    "description": "This is the package of all files related to the application...",
+    "requirement-apt": ["tzdata","ffmpeg libsm6 libxext6"],
+    "requirement-var": ["DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC"],
+    "import-files": [
+        "app.py",
+        "requirements.txt",
+        "contract.json"
+    ],
+    
+    "application_launch":"app.py",
+
+    "sensor_data":{
+        "num_sensors":5,
+        "num_controlllers":5,
+        "sensor_types":[
+            "Light",
+            "Camera",
+            "Fan"
+        ],
+        "sensor_config":[
+            ""
+        ]
+        
+    }    
+        
+    
+}

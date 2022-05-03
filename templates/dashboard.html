@@ -1,21 +1,37 @@
 {% extends 'base_template.html' %}
 
+{% block imports %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/recordAttendance.css">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="assets/demo.css">
+<link rel="stylesheet" href="assets/header-fixed.css">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+{% endblock %}
+
 {% block body %}
 
 <header class="header-fixed">
 
 	<div class="header-limiter">
-		<h1><a href="/dashboard">Application<span>Name</span></a></h1>
+		<h1><a href="/dashboard">ClassRoom<span>Management</span></a></h1>
 	</div>
-
+	<button type="button" class="btn btn-primary float-right" onclick="document.location.href='/settings';">
+		<i class="fa fa-cog fa-fw"></i> <span class="ml-1" ></span>Settings</span></button>
 </header>
-
-<!-- You need this element to prevent the content of the page from jumping up -->
 <div class="header-fixed-placeholder"></div>
 
 <!-- The content of your page would go here. -->
 <div id="buttons">
     <button class="button button2" onclick="document.location.href='/recordAttendance';">Record Attendance</button>
+	<button class="button button2" onclick="document.location.href='/attentionDashboard';">Attention DashBoard</button>
+	<button class="button button2" onclick="document.location.href='/motionDetection';">Motion Detection DashBoard</button>
+	<button class="button button2" onclick="document.location.href='/deviceDashBoard';">Smart Devices DashBoard</button>
   </div>
 
 {% endblock %}

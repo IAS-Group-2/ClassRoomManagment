@@ -15,4 +15,5 @@ class ConfigHelper:
     def get_mail_prof(self):
         return self.conf["prof_email"]
     
-    
+    def get_students(self):
+        return self.conf["student_data"]

@@ -1,0 +1,10 @@
+dlib
+face-recognition
+Flask
+kafka-python
+numpy
+opencv-python
+pandas
+Pillow
+pymongo
+Werkzeug
